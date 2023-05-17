@@ -1,0 +1,24 @@
+
+type User {
+    id: ID!
+    email: String!
+    hashedPassword: String
+    token:String
+    courses:[Course]
+}
+
+input inputUser{
+  email: String!
+  password: String
+}
+
+type Query{
+    getUsers(page:Int = 1, items:Int = 4):[User]
+    getUser(id:ID!):User
+}
+
+type Mutation{
+    signUp(signUp:inputUser):User
+    loginIn(loginIn:inputUser):User
+    signOut(id:ID!):Alert
+}

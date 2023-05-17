@@ -1,0 +1,23 @@
+type Course{
+    id:ID!
+    title: String
+    views: Int
+    user: User
+}
+
+input inputCourse{
+    title: String
+    views: Int
+    user:String
+}
+
+type Query{
+    getCourses(page:Int = 1, items:Int = 4):[Course]
+    getCourse(id:ID!):Course
+}
+
+type Mutation{
+    addCourse(addCourse:inputCourse,user:ID!):Course
+    updateCourse(id:ID!,updateCourse:inputCourse):Course
+    deleteCourse(id:ID!): Alert
+}
